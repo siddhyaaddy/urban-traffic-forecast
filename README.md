@@ -16,6 +16,24 @@ This project builds a **cloud-based machine learning pipeline** for forecasting 
 
 ---
 
+---
+## 🛠️ Tech Stack
+AWS Lambda – Automate data ingestion
+
+AWS S3 – Data lake for raw, filtered, transformed, and prediction data
+
+AWS Glue – Data transformation jobs & crawling
+
+AWS Athena – SQL queries on transformed and prediction data
+
+AWS RDS (PostgreSQL) – Central database for dashboard-ready predictions
+
+LightGBM – ML models with lag-based and feature-based training
+
+Streamlit + AWS Elastic Beanstalk – Visualize and interact with metrics in real time
+---
+
+
 ## 🔁 Pipeline Architecture
 
 ```plaintext

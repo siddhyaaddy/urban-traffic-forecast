@@ -16,21 +16,16 @@ This project builds a **cloud-based machine learning pipeline** for forecasting 
 
 ---
 
----
 ## 🛠️ Tech Stack
+
 AWS Lambda – Automate data ingestion
-
 AWS S3 – Data lake for raw, filtered, transformed, and prediction data
-
 AWS Glue – Data transformation jobs & crawling
-
 AWS Athena – SQL queries on transformed and prediction data
-
 AWS RDS (PostgreSQL) – Central database for dashboard-ready predictions
-
 LightGBM – ML models with lag-based and feature-based training
-
 Streamlit + AWS Elastic Beanstalk – Visualize and interact with metrics in real time
+
 ---
 
 
@@ -49,6 +44,7 @@ S3 (raw) ──▶ Lambda (triggered)
 
 ```
 
+---
 ## 📁 taxi-pipeline-forecast/
 ```
 ├── lambda/
@@ -73,6 +69,45 @@ S3 (raw) ──▶ Lambda (triggered)
 
 
 ```
+
+---
+
+## 🧠 ML Models
+
+Model 1: LightGBM with Lag Features
+Uses 28-day lag values
+
+Trained separately for:
+
+Location ID 43
+
+2 other selected locations
+
+Model 2: LightGBM with Feature Selection
+Max 10 features:
+
+Mandatory: lag 1, 24, 48, 72, 96
+
+Avg. across past 4 weeks
+
+5 from feature importance
+
+---
+
+## 📊 Streamlit Dashboard
+Hosted on AWS Elastic Beanstalk.
+Main Features:
+
+Tabs: Athena View | RDS View
+
+Dropdown: Select 3 NYC locations
+
+Metrics: MAE & MAPE for both models
+
+Cache: Auto-invalidates at the top of every hour
+
+---
+
 📁 S3 Folder Structure
 ```
 s3://<bucket_name>/taxi/
@@ -81,3 +116,12 @@ s3://<bucket_name>/taxi/
 ├── filtered/year=<YYYY>/month=<MM>/
 ├── transformed/year=<YYYY>/month=<MM>/
 └── predictions/model=<model_id>/location_id=<ID>/year=<YYYY>/month=<MM>/day=<DD>/hour=<HH>/
+
+```
+---
+
+## 🌐 Live Demo
+
+🔗 Streamlit Dashboard – Click to View
+
+---

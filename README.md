@@ -32,7 +32,7 @@ S3 (raw) ──▶ Lambda (triggered)
 ```
 
 ## 📁 taxi-pipeline-forecast/
-
+```
 ├── lambda/
 │   ├── download_data.py
 │   └── trigger_glue.py
@@ -52,16 +52,14 @@ S3 (raw) ──▶ Lambda (triggered)
 ├── utils/
 │   └── athena_queries.py
 ├── README.md
----
-```
+
 
 ```
 📁 S3 Folder Structure
-
+```
 s3://<bucket_name>/taxi/
 │
 ├── raw/year=<YYYY>/month=<MM>/
 ├── filtered/year=<YYYY>/month=<MM>/
 ├── transformed/year=<YYYY>/month=<MM>/
 └── predictions/model=<model_id>/location_id=<ID>/year=<YYYY>/month=<MM>/day=<DD>/hour=<HH>/
----
